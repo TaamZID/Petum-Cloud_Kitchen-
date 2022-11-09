@@ -8,7 +8,7 @@ import Review from "./Review";
 
 const ServiceDetails = () => {
   const [modalShow, setModalShow] = React.useState(false);
-  const { serviceName, ratings, description, price, url, _id } =
+  const { serviceName, ratings, description, price, url } =
     useLoaderData();
   return (
     <div>
