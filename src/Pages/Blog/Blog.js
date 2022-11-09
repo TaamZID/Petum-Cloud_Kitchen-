@@ -23,50 +23,42 @@ const Blog = () => {
         <tbody>
           <tr>
             <td>1</td>
-            <td>What is Cors?</td>
+            <td>Difference between SQL and NoSQL</td>
             <td>
-              Cross-Origin Resource Sharing (CORS) is an HTTP-header based
-              mechanism that allows a server to indicate any origins (domain,
-              scheme, or port) other than its own from which a browser should
-              permit loading resources.
+              SQL is the programming language used to interface with relational
+              databases. (Relational databases model data as records in rows and
+              tables with logical links between them). NoSQL is a class of DBMs
+              that are non-relational and generally do not use SQL.
             </td>
           </tr>
           <tr>
             <td>2</td>
+            <td>What is JWT, and how does it work?</td>
             <td>
-              Why are you using firebase? What other options do you have to
-              implement authentication?
-            </td>
-            <td>
-              Firebase Authentication provides backend services, easy-to-use
-              SDKs, and ready-made UI libraries to authenticate users to your
-              app. It supports authentication using passwords, phone numbers,
-              popular federated identity providers like Google, Facebook and
-              Twitter, and more.
-              <br /> Auth0, MongoDB, Passport, Okta, and Firebase are the most
-              popular alternatives and competitors to Firebase Authentication.
+              JSON Web Token (JWT) is an open standard (RFC 7519) for securely
+              transmitting information between parties as JSON object. It is
+              compact, readable and digitally signed using a private key/ or a
+              public key pair by the Identity Provider(IdP).
             </td>
           </tr>
           <tr>
             <td>3</td>
-            <td>How does the private route work?</td>
+            <td>What is the difference between javascript and NodeJS?</td>
             <td>
-              The private route component is similar to the public route, the
-              only change is that redirect URL and authenticate condition. If
-              the user is not authenticated he will be redirected to the login
-              page and the user can only access the authenticated routes If he
-              is authenticated (Logged in).
+              JavaScript is a simple programming language that can be used with
+              any browser that has the JavaScript Engine installed. Node. js, on
+              the other hand, is an interpreter or execution environment for the
+              JavaScript programming language.
             </td>
           </tr>
           <tr>
             <td>4</td>
-            <td>What is Node? How does Node work?</td>
+            <td>How does NodeJS handle multiple requests at the same time?</td>
             <td>
-              It is a used as backend service where javascript works on the
-              server-side of the application. This way javascript is used on
-              both frontend and backend. Node. js runs on chrome v8 engine which
-              converts javascript code into machine code, it is highly scalable,
-              lightweight, fast, and data-intensive. Working of Node.
+              NodeJS receives multiple client requests and places them into
+              EventQueue. NodeJS is built with the concept of event-driven
+              architecture. NodeJS has its own EventLoop which is an infinite
+              loop that receives requests and processes them.
             </td>
           </tr>
         </tbody>

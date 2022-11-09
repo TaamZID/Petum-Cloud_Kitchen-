@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { MDBBtn } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
-import ServiceCard from "./ServiceCard";
 
-const Services = ({}) => {
+const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {

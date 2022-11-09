@@ -78,6 +78,12 @@ const Header = () => {
                   </>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <>
+                    <Link className="link" to="/myreviews">
+                      My Reviews
+                    </Link>
+                  </>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <>
                     {/* <Button variant="light" onClick={handleLogOut}>
                       Logout
                     </Button> */}

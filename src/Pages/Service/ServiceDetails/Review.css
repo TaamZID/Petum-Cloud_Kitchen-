@@ -5,9 +5,13 @@
   border-top-right-radius: 0.25rem;
 }
 .testimonial-card .avatar {
-  width: 110px;
+  width: 80px;
   margin-top: -60px;
   overflow: hidden;
   border: 3px solid #fff;
   border-radius: 50%;
+}
+
+.testimonial-card {
+  margin-right: 20px;
 }
