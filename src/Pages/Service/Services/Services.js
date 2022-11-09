@@ -42,7 +42,7 @@ const Services = () => {
                       : serve.description}
                   </p>
                   <Link className="link" to={`/services/${serve._id}`}>
-                    Explore
+                    View Details
                   </Link>
                 </div>
               </div>

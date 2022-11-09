@@ -1,6 +1,10 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddServices = () => {
+  const notify = () => toast("Service Added Successfully!");
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -30,13 +34,14 @@ const AddServices = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("Items Added");
+          toast.success("Successfully Added");
+          // alert("Items Added");
           form.reset();
         }
       })
       .catch((error) => console.log(error));
   };
-  
+
   return (
     <div>
       <h1>Add Meals</h1>
@@ -72,7 +77,7 @@ const AddServices = () => {
                 </label>
                 <input
                   name="ratings"
-                  type="number"
+                  type="text"
                   id="typeNumber"
                   class="form-control"
                 />
@@ -105,6 +110,7 @@ const AddServices = () => {
             </div>
           </div>
         </form>
+        <ToastContainer />
       </div>
     </div>
   );

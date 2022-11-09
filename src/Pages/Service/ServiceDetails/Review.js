@@ -1,4 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useLoaderData } from "react-router-dom";
 import "./Review.css";
 import { Link } from "react-router-dom";
@@ -55,7 +58,7 @@ const Review = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("Items Added");
+          toast.success("Successfully Added");
           form.reset();
         }
       })
@@ -101,10 +104,10 @@ const Review = () => {
           </MDBCol>
         </MDBRow>
         <MDBContainer className="py-5 mr-4">
-          <MDBRow className="text-center d-flex align-items-stretch">
+          <MDBRow className="text-center d-flex">
             <MDBCol
               md="4"
-              className="mb-5 mr-4 mb-md-0 d-flex align-items-stretch"
+              className="mb-5 mr-4 mb-md-0 d-flex"
             >
               {revw.map((r) =>
                 _id === r.id ? (
@@ -137,6 +140,7 @@ const Review = () => {
           </MDBRow>
         </MDBContainer>
       </div>
+      <ToastContainer />
     </div>
   );
 };
