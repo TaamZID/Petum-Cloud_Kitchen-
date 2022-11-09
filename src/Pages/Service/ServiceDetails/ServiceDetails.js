@@ -8,13 +8,14 @@ import Review from "./Review";
 
 const ServiceDetails = () => {
   const [modalShow, setModalShow] = React.useState(false);
-  const { serviceName, ratings, description, price, url } = useLoaderData();
+  const { serviceName, ratings, description, price, url, _id } =
+    useLoaderData();
   return (
     <div>
       <h1 className="text-center">Meal Details</h1>
 
       <div className="flex mt-6">
-        <div class="card" style={{ width: 500 }}>
+        <div className="card text-center" style={{ width: 500 }}>
           <img src={url} class="card-img-top" alt="Fissure in Sandstone" />
           <div class="card-body">
             <h5 class="card-title">{serviceName}</h5>

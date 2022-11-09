@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 import "./Review.css";
 import { Link } from "react-router-dom";
 import {
@@ -16,49 +17,116 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
+  const { _id } = useLoaderData();
+  const [revw, setRevw] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        setRevw(data);
+        console.log(data);
+      });
+  }, []);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const description = form.description.value;
+
+    const review = {
+      service: __dirname,
+      id: _id,
+      name: user?.displayName,
+      image: user?.photoURL,
+      description: description,
+    };
+
+    fetch("http://localhost:5000/addReviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("Items Added");
+          form.reset();
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div>
       <div>
         {user?.uid ? (
-          <h1 className="text-center">Logged in</h1>
+          // <h1 className="text-center">Logged in</h1>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div className="mt-4">
+                <label class="form-label" for="textAreaExample">
+                  Give a review
+                </label>
+                <textarea
+                  style={{ height: "100px", width: "800px" }}
+                  name="description"
+                  class="form-control"
+                  id="textAreaExample"
+                  rows="4"
+                  required
+                ></textarea>
+                <input class="btn" type="submit" value="Add" />
+              </div>
+            </form>
+          </div>
         ) : (
-            <h3 className="text-center">
-                Please login to review item! 
-                <Link className="link" to="/login">
-                    Login
-                </Link>
-            </h3>
+          <h3 className="text-center">
+            Please login to review item! &nbsp;
+            <Link className="link" to="/login">
+              Login
+            </Link>
+          </h3>
         )}
       </div>
-      <MDBContainer className="py-5">
-        <MDBRow className="d-flex justify-content-center">
-          <MDBCol md="10" xl="8" className="text-center">
-            <h3 className="mb-4">Reviews</h3>
-          </MDBCol>
-        </MDBRow>
-        <MDBRow className="text-center d-flex align-items-stretch">
-          <MDBCol md="4" className="mb-5 mb-md-0 d-flex align-items-stretch">
-            <MDBCard className="testimonial-card">
-              <div
-                className="card-up"
-                style={{ backgroundColor: "#7a81a8" }}
-              ></div>
-              <div className="avatar mx-auto bg-white">
-                <img src="" className="rounded-circle img-fluid" />
-              </div>
-              <MDBCardBody>
-                <h4 className="mb-4">Maria Smantha</h4>
-                <hr />
-                <p className="dark-grey-text mt-4">
-                  <MDBIcon fas icon="quote-left" className="pe-2" />
-                  Lorem ipsum dolor sit amet eos adipisci, consectetur
-                  adipisicing elit.
-                </p>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+      <div>
+        {revw.map((r) => (
+          <MDBContainer className="py-5">
+            <MDBRow className="d-flex justify-content-center">
+              <MDBCol md="10" xl="8" className="text-center">
+                <h3 className="mb-4">Reviews</h3>
+              </MDBCol>
+            </MDBRow>
+            <MDBRow className="text-center d-flex align-items-stretch">
+              <MDBCol
+                md="4"
+                className="mb-5 mb-md-0 d-flex align-items-stretch"
+              >
+                <MDBCard className="testimonial-card">
+                  <div
+                    className="card-up"
+                    style={{ backgroundColor: "#7a81a8" }}
+                  ></div>
+                  <div className="avatar mx-auto bg-white">
+                    <img src={r.image} className="rounded-circle img-fluid" />
+                  </div>
+                  <MDBCardBody>
+                    <h4 className="mb-4">{r.name}</h4>
+                    <hr />
+                    <p className="dark-grey-text mt-4">
+                      <MDBIcon fas icon="quote-left" className="pe-2" />
+                      {r.description}
+                    </p>
+                  </MDBCardBody>
+                </MDBCard>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        ))}
+      </div>
     </div>
   );
 };

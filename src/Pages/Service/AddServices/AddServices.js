@@ -36,6 +36,7 @@ const AddServices = () => {
       })
       .catch((error) => console.log(error));
   };
+  
   return (
     <div>
       <h1>Add Meals</h1>
