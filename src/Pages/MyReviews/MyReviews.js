@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   MDBCard,
   MDBCardBody,
@@ -15,18 +17,22 @@ const MyReviews = () => {
   const [revw, setRevw] = useState([]);
   const { user } = useContext(AuthContext);
 
-  //   const handleDelete = (id) => {
-  //     const proceed = window.confirm("Are you sure to delete?");
-  //     if (proceed) {
-  //       fetch(`http://localhost:5000/reviews/${id}`, {
-  //         method: "DELETE",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           console.log(data);
-  //         });
-  //     }
-  //   };
+  const handleDelete = (id) => {
+    console.log(id);
+    const proceed = window.confirm("Are you sure to delete?");
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            toast.error("Review Deleted");
+          }
+        });
+    }
+  };
 
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
@@ -35,15 +41,15 @@ const MyReviews = () => {
         setRevw(data);
         console.log(data);
       });
-  }, []);
+  }, [revw]);
 
   return (
     <div>
       <h3 className="text-center">My Reviews</h3>
       {user?.uid ? (
         <MDBContainer className="py-5 mr-4">
-          <MDBRow className="text-center">
-            <MDBCol md="4" className="mb-5 mr-4 mb-md-0">
+          <MDBRow className="text-center d-flex">
+            <MDBCol md="4" className="mb-5 mr-4 mb-md-0 d-flex">
               {revw.map((r) =>
                 user?.uid === r.uid ? (
                   <div>
@@ -67,7 +73,7 @@ const MyReviews = () => {
                           <MDBIcon fas icon="quote-left" className="pe-2" />
                           {r.description}
                         </p>
-                        <Button>X</Button>
+                        <Button onClick={() => handleDelete(r._id)}>X</Button>
                       </MDBCardBody>
                     </MDBCard>
                   </div>
@@ -81,6 +87,7 @@ const MyReviews = () => {
       ) : (
         <p></p>
       )}
+      <ToastContainer />
     </div>
   );
 };

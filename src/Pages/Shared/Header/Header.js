@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { FaBars, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import image from "./images/coding_shikhi.png";
+import image from "./images/Cooking_icon.png";
 import "./Header.css";
 import { MDBBtn } from "mdb-react-ui-kit";
 
@@ -38,8 +38,8 @@ const Header = () => {
       <Container>
         <Image src={image} style={{ height: 40, width: 40 }}></Image>
         &nbsp;&nbsp;
-        <Link className="link fs-6" to="/">
-          Tastely
+        <Link className="link fs-4" to="/">
+          Petum
         </Link>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <Navbar.Toggle aria-controls="responsive-navbar-nav">

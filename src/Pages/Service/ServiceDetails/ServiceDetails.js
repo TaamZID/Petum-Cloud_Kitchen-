@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import "./ServiceDetails.css";
+// import "./ServiceDetails.css";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Review from "./Review";
 
 const ServiceDetails = () => {
-  const [modalShow, setModalShow] = React.useState(false);
-  const { serviceName, ratings, description, price, url } =
-    useLoaderData();
+  const [modalShow, setModalShow] = useState(false);
+  const { serviceName, ratings, description, price, url } = useLoaderData();
   return (
     <div>
       <h1 className="text-center">Meal Details</h1>
 
       <div className="flex mt-6">
-        <div className="card text-center" style={{ width: 500 }}>
+        <div
+          className="card col d-flex justify-content-center mx-auto text-center"
+          style={{ width: 500 }}
+        >
           <img src={url} class="card-img-top" alt="Fissure in Sandstone" />
           <div class="card-body">
             <h5 class="card-title">{serviceName}</h5>

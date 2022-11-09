@@ -7,6 +7,11 @@ body {
 .text {
   align-items: center;
   justify-content: center;
-  margin-top: 20%;
+  margin-top: 10%;
+  margin-left: 5%;
   font-size: 3rem;
+}
+
+.add {
+  margin-left: 5%;
 }
