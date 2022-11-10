@@ -8,7 +8,7 @@
 - After logging in anyone can review items. 
 - User must login to check his/her reviews.
 - User cas see others review.
-- User
+- User can suggest meals.
 - Blog Sections.
 
 
