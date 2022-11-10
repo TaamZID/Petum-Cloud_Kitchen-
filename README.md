@@ -3,9 +3,10 @@
 ## Live Link - 
 
 ## Features and Functionalities
-- Login & Registration using Google, Github, Email & Password.
-- After logging in anyone can buy courses. 
-- User must login to checkout courses.
+- Cloud Kitchen PETUM.
+- Login & Registration using Google, Email & Password.
+- After logging in anyone can review items. 
+- User must login to check his/her reviews.
 - User can download course details as pdf.
 - Blog & FAQ Sections.
 
