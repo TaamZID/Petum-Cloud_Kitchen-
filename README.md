@@ -7,8 +7,8 @@
 - Login & Registration using Google, Email & Password.
 - After logging in anyone can review items. 
 - User must login to check his/her reviews.
-- User can download course details as pdf.
-- Blog & FAQ Sections.
+- User cas see others review.
+- Blog Sections.
 
 
 ## Technologies Used 
