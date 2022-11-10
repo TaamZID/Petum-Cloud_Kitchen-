@@ -40,7 +40,7 @@ const Home = () => {
           alt="..."
           style={{ height: 400 }}
         />
-        <h2 className="text text-center">Welcome to cloud Kitchen!</h2>
+        <h2 className="text text-center">Welcome to our cloud Kitchen!</h2>
       </div>
       <br />
       <div>
@@ -61,7 +61,8 @@ const Home = () => {
                     style={{ height: 300 }}
                   />
                   <div class="card-body">
-                    <h5 class="card-title">{serve.price}</h5>
+                    <h5 class="card-title">Item: {serve.serviceName}</h5>
+                    <h5 class="card-title">Price: {serve.price} tk</h5>
                     <p class="card-text">
                       {serve.description.length > 100
                         ? serve.description.slice(0, 100) + "..."

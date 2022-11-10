@@ -1,8 +1,10 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import { MDBTypography } from "mdb-react-ui-kit";
+import useTitle from "../../hooks/useTitle";
 
 const Blog = () => {
+  useTitle("Blogs");
   return (
     <div>
       <MDBTypography

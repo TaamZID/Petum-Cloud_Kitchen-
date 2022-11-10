@@ -1,9 +1,11 @@
 import React from "react";
+// import "./footer.css";
 
 const Footer = () => {
   return (
     <div>
       <footer
+        id="footer"
         class="text-center text-white"
         style={{ backgroundColor: "#f1f1f1" }}
       >

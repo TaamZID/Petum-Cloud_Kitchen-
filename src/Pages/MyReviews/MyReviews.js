@@ -12,10 +12,13 @@ import {
 } from "mdb-react-ui-kit";
 import { FaTrash } from "react-icons/fa";
 import { Button } from "react-bootstrap";
+import useTitle from "../../hooks/useTitle";
+import { Link } from "react-router-dom";
 
 const MyReviews = () => {
   const [revw, setRevw] = useState([]);
   const { user } = useContext(AuthContext);
+  useTitle("My Reviews");
 
   const handleDelete = (id) => {
     console.log(id);
@@ -48,8 +51,8 @@ const MyReviews = () => {
       <h3 className="text-center">My Reviews</h3>
       {user?.uid ? (
         <MDBContainer className="py-5 mr-4">
-          <MDBRow className="text-center d-flex">
-            <MDBCol md="4" className="mb-5 mr-4 mb-md-0 d-flex">
+          <MDBRow className="text-center d-md-flex">
+            <MDBCol md="4" className="mb-5 mr-4 mb-md-0 d-md-flex">
               {revw.map((r) =>
                 user?.uid === r.uid ? (
                   <div>
@@ -68,12 +71,22 @@ const MyReviews = () => {
                       <MDBCardBody>
                         <h4 className="mb-4">{r.name}</h4>
                         <hr />
-                        <p>{r.serviceName}</p>
+                        <p>Item: {r.serviceName}</p>
                         <p className="dark-grey-text mt-4">
                           <MDBIcon fas icon="quote-left" className="pe-2" />
                           {r.description}
                         </p>
-                        <Button onClick={() => handleDelete(r._id)}>X</Button>
+                        <Button
+                          className="btn-danger"
+                          onClick={() => handleDelete(r._id)}
+                        >
+                          X
+                        </Button>
+                        &nbsp;
+                        {/* <Link to={`/update/${r._id}`}>
+                          <Button>Update</Button>
+                        </Link> */}
+                        <Button>Update</Button>
                       </MDBCardBody>
                     </MDBCard>
                   </div>

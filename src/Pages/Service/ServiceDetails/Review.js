@@ -73,18 +73,23 @@ const Review = () => {
           <div>
             <form onSubmit={handleSubmit}>
               <div className="mt-4">
-                <label class="form-label" for="textAreaExample">
-                  Give a review
-                </label>
+                <div className="text-center">
+                  <label class="form-label" for="textAreaExample">
+                    Give a review
+                  </label>
+                </div>
                 <textarea
-                  style={{ height: "100px", width: "800px" }}
+                  style={{ height: "100px", width: "400px" }}
                   name="description"
                   class="form-control"
                   id="textAreaExample"
+                  className="d-flex justify-content-center mx-auto text-center"
                   rows="4"
                   required
                 ></textarea>
-                <input class="btn" type="submit" value="Add" />
+                <div className="text-center">
+                  <input class="btn" type="submit" value="Add" />
+                </div>
               </div>
             </form>
           </div>
@@ -97,6 +102,7 @@ const Review = () => {
           </h3>
         )}
       </div>
+      <br /><br />
       <div>
         <MDBRow className="d-flex justify-content-center">
           <MDBCol md="10" xl="8" className="text-center">
@@ -104,11 +110,8 @@ const Review = () => {
           </MDBCol>
         </MDBRow>
         <MDBContainer className="py-5 mr-4">
-          <MDBRow className="text-center d-flex">
-            <MDBCol
-              md="4"
-              className="mb-5 mr-4 mb-md-0 d-flex"
-            >
+          <MDBRow className="text-center d-md-flex">
+            <MDBCol md="4" className="mb-5 mr-4 mb-md-0 d-md-flex">
               {revw.map((r) =>
                 _id === r.id ? (
                   <MDBCard className="testimonial-card">

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 import "react-photo-view/dist/react-photo-view.css";
+import useTitle from "../../../hooks/useTitle";
 
 const Services = () => {
   const [services, setServices] = useState([]);
-
+  useTitle("All Meals");
   useEffect(() => {
     fetch("http://localhost:5000/services")
       .then((res) => res.json())
@@ -40,7 +41,8 @@ const Services = () => {
                     />
                   </PhotoView>
                   <div class="card-body">
-                    <h5 class="card-title">{serve.price}</h5>
+                    <h5 class="card-title">Item: {serve.serviceName}</h5>
+                    <h5 class="card-title">Price: {serve.price} tk</h5>
                     <p class="card-text">
                       {serve.description.length > 100
                         ? serve.description.slice(0, 100) + "..."
