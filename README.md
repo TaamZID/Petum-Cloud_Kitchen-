@@ -9,7 +9,7 @@
 - User must login to check his/her reviews.
 - User cas see others review.
 - User can suggest meals.
-- Blog Sections.
+- Blog Section.
 
 
 ## Technologies Used 
